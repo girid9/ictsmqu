@@ -54,6 +54,7 @@ export type Database = {
       }
       battle_rooms: {
         Row: {
+          bet_amount: number
           created_at: string
           current_question: number
           finished_at: string | null
@@ -67,6 +68,7 @@ export type Database = {
           invited_friend_id: string | null
           is_random_match: boolean
           question_ids: string[]
+          questions_data: Json | null
           room_code: string
           started_at: string | null
           status: string
@@ -74,6 +76,7 @@ export type Database = {
           topic_name: string
         }
         Insert: {
+          bet_amount?: number
           created_at?: string
           current_question?: number
           finished_at?: string | null
@@ -87,6 +90,7 @@ export type Database = {
           invited_friend_id?: string | null
           is_random_match?: boolean
           question_ids?: string[]
+          questions_data?: Json | null
           room_code: string
           started_at?: string | null
           status?: string
@@ -94,6 +98,7 @@ export type Database = {
           topic_name: string
         }
         Update: {
+          bet_amount?: number
           created_at?: string
           current_question?: number
           finished_at?: string | null
@@ -107,11 +112,39 @@ export type Database = {
           invited_friend_id?: string | null
           is_random_match?: boolean
           question_ids?: string[]
+          questions_data?: Json | null
           room_code?: string
           started_at?: string | null
           status?: string
           subject_id?: string
           topic_name?: string
+        }
+        Relationships: []
+      }
+      chat_messages: {
+        Row: {
+          created_at: string
+          display_name: string
+          id: string
+          message: string
+          room_code: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string
+          id?: string
+          message: string
+          room_code: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string
+          id?: string
+          message?: string
+          room_code?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -203,40 +236,55 @@ export type Database = {
         Row: {
           avatar_url: string | null
           best_streak: number
+          coins: number
           created_at: string
           display_name: string
+          draws: number
           id: string
+          last_daily_bonus: string | null
+          losses: number
           total_correct: number
           total_questions: number
           total_quizzes: number
           updated_at: string
           user_id: string
+          wins: number
           xp: number
         }
         Insert: {
           avatar_url?: string | null
           best_streak?: number
+          coins?: number
           created_at?: string
           display_name?: string
+          draws?: number
           id?: string
+          last_daily_bonus?: string | null
+          losses?: number
           total_correct?: number
           total_questions?: number
           total_quizzes?: number
           updated_at?: string
           user_id: string
+          wins?: number
           xp?: number
         }
         Update: {
           avatar_url?: string | null
           best_streak?: number
+          coins?: number
           created_at?: string
           display_name?: string
+          draws?: number
           id?: string
+          last_daily_bonus?: string | null
+          losses?: number
           total_correct?: number
           total_questions?: number
           total_quizzes?: number
           updated_at?: string
           user_id?: string
+          wins?: number
           xp?: number
         }
         Relationships: []

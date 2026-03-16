@@ -1,1 +1,0 @@
-ALTER TABLE public.battle_rooms ADD COLUMN is_random_match boolean NOT NULL DEFAULT false;
